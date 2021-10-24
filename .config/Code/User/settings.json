@@ -1,0 +1,8 @@
+{
+    "editor.rulers": [80],
+    "workbench.colorTheme": "Nord",
+    "explorer.confirmDelete": false,
+    "telemetry.telemetryLevel": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.minimap.enabled": false
+}
