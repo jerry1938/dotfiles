@@ -1,0 +1,8 @@
+[user]
+	# These values are set in ~/.gitconfig.local
+[credential]
+	helper = store
+[include]
+	path = ~/.gitconfig.local
+[core]
+	excludesFile = ~/.gitignore
