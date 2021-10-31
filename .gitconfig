@@ -6,3 +6,15 @@
 	path = ~/.gitconfig.local
 [core]
 	excludesFile = ~/.gitignore
+[alias]
+	status = git status
+	add = git add
+	addall = git add .
+	commit = git commit -m
+	push = git push
+	fetch = git fetch
+	pull = git pull
+	branch = git branch
+	checkout = git checkout
+	merge = git merge
+	clone = git clone
