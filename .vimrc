@@ -6,6 +6,7 @@ set softtabstop=4
 set nocompatible
 set noshowmode
 set shortmess+=F
+set belloff=all
 
 syntax on
 
