@@ -1,0 +1,41 @@
+Config { font = "xft:Ubuntu Mono:pixelsize=16:antialias=true:hinting=true"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "#282a36"
+       , fgColor = "#f8f8f2"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ 
+				Run DynNetwork [
+						"--template","<dev>: <rx>|<tx>",
+						"-S", "True",
+						"-L","1000",
+						"-H","5000",
+						"--low","#50fa7b",
+                        "--normal","#ffb86c",
+						"--high","#ff5555"] 10
+				, Run Cpu [
+					    "-L","10",
+					    "-H","50",
+						"--low", "#50fa7b",
+                        "--normal","#ffb86c",
+					    "--high","#ff5555"] 10
+                , Run Memory ["-t","Mem: <usedratio>%"] 10
+                , Run Swap [] 10
+                , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<fc=#8be9fd>%cpu%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%memory% * %swap%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%dynnetwork%</fc> }\
+                    \{ <fc=#8be9fd>%date%</fc>"
+       }
