@@ -15,27 +15,44 @@ Config { font = "xft:Ubuntu Mono:pixelsize=16:antialias=true:hinting=true"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ 
+       , commands = [
 				Run DynNetwork [
 						"--template","<dev>: <rx>|<tx>",
-						"-S", "True",
+						"-S","True",
 						"-L","1000",
 						"-H","5000",
 						"--low","#50fa7b",
-                        "--normal","#ffb86c",
+						"--normal","#ffb86c",
 						"--high","#ff5555"] 10
 				, Run Cpu [
 					    "-L","10",
 					    "-H","50",
-						"--low", "#50fa7b",
+						"--low","#50fa7b",
                         "--normal","#ffb86c",
 					    "--high","#ff5555"] 10
-                , Run Memory ["-t","Mem: <usedratio>%"] 10
-                , Run Swap [] 10
+                , Run Memory [
+						"-t","Mem: <usedratio>%",
+						"-L","10",
+						"-H","50",
+						"--low","#50fa7b",
+						"--normal","#ffb86c",
+						"--high","#ff5555"] 10
+                , Run Swap [
+						"-L","10",
+						"-H","50",
+						"--low","#50fa7b",
+						"--normal","#ffb86c",
+						"--high","#ff5555"] 10
                 , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+				, Run DiskU [("/","<used>/<size>"), ("nvme0n1p5","<usedbar>")] 
+						[
+						"-L","20",
+						"-H","50",
+						"-m","1",
+						"-p","3"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "<fc=#8be9fd>%cpu%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%memory% * %swap%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%dynnetwork%</fc> }\
+       , template = "<fc=#8be9fd>%cpu%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%memory% (%swap%)</fc> <fc=#44475a>|</fc> <fc=#8be9fd>Disk: %disku%</fc> <fc=#44475a>|</fc> <fc=#8be9fd>%dynnetwork%</fc> }\
                     \{ <fc=#8be9fd>%date%</fc>"
        }
