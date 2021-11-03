@@ -16,40 +16,40 @@ Config { font = "xft:Ubuntu Mono:pixelsize=16:antialias=true:hinting=true"
        , allDesktops = True
        , overrideRedirect = True
        , commands = [
-				Run DynNetwork [
-						"--template","<dev>: <rx>|<tx>",
-						"-S","True",
-						"-L","1000",
-						"-H","5000",
-						"--low","#50fa7b",
-						"--normal","#ffb86c",
-						"--high","#ff5555"] 10
-				, Run Cpu [
-					    "-L","10",
-					    "-H","50",
-						"--low","#50fa7b",
+                Run DynNetwork [
+                        "--template","<dev>: <rx>|<tx>",
+                        "-S","True",
+                        "-L","1000",
+                        "-H","5000",
+                        "--low","#50fa7b",
                         "--normal","#ffb86c",
-					    "--high","#ff5555"] 10
+                        "--high","#ff5555"] 10
+                , Run Cpu [
+                        "-L","10",
+                        "-H","50",
+                        "--low","#50fa7b",
+                        "--normal","#ffb86c",
+                        "--high","#ff5555"] 10
                 , Run Memory [
-						"-t","Mem: <usedratio>%",
-						"-L","10",
-						"-H","50",
-						"--low","#50fa7b",
-						"--normal","#ffb86c",
-						"--high","#ff5555"] 10
+                        "-t","Mem: <usedratio>%",
+                        "-L","10",
+                        "-H","50",
+                        "--low","#50fa7b",
+                        "--normal","#ffb86c",
+                        "--high","#ff5555"] 10
                 , Run Swap [
-						"-L","10",
-						"-H","50",
-						"--low","#50fa7b",
-						"--normal","#ffb86c",
-						"--high","#ff5555"] 10
+                        "-L","10",
+                        "-H","50",
+                        "--low","#50fa7b",
+                        "--normal","#ffb86c",
+                        "--high","#ff5555"] 10
                 , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-				, Run DiskU [("/","<used>/<size>"), ("nvme0n1p5","<usedbar>")] 
-						[
-						"-L","20",
-						"-H","50",
-						"-m","1",
-						"-p","3"] 20
+                , Run DiskU [("/","<used>/<size>"), ("nvme0n1p5","<usedbar>")] 
+                        [
+                        "-L","20",
+                        "-H","50",
+                        "-m","1",
+                        "-p","3"] 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
