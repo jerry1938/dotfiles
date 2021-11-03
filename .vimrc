@@ -3,6 +3,8 @@ set nowrap
 set colorcolumn=80
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+set expandtab
 set nocompatible
 set noshowmode
 set shortmess+=F
@@ -20,6 +22,6 @@ call plug#end()
 set laststatus=2
 
 let g:lightline = {
-	\ 'colorscheme': 'nord',
+	\ 'colorscheme': 'darcula',
 	\ }
 
