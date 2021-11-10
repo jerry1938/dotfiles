@@ -1,8 +1,10 @@
 {
     "editor.rulers": [80],
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Dracula",
     "explorer.confirmDelete": false,
     "telemetry.telemetryLevel": "off",
     "editor.bracketPairColorization.enabled": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.tree.indent": 12
 }
