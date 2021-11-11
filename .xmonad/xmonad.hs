@@ -14,6 +14,8 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL))
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -138,6 +140,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Volume
     , ((0, 0x1008FF11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
     , ((0, 0x1008FF13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((modm, xK_Return), sendMessage ToggleStruts >> sendMessage (Toggle NBFULL))
     ]
     ++
 
@@ -189,7 +192,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts $ mkToggle (single NBFULL) (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
