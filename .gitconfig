@@ -6,6 +6,7 @@
 	path = ~/.gitconfig.local
 [core]
 	excludesFile = ~/.gitignore
+	editor = vim
 [alias]
 	status = git status
 	add = git add
