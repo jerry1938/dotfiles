@@ -224,7 +224,7 @@ myLayout = avoidStruts $ mkToggle (single NBFULL) (tiled ||| Mirror tiled ||| Fu
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-	, className =? "notification"	--> doFloat
+    , className =? "notification"   --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
@@ -256,8 +256,9 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-		spawnOnce "nitrogen --restore &"
-		spawnOnce "compton &"
+    spawnOnce "nitrogen --restore &"
+    spawnOnce "compton &"
+    spawnOnce "dunst &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
