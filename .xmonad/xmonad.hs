@@ -138,8 +138,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
 
     -- Volume
-    , ((0, 0x1008FF11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-    , ((0, 0x1008FF13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+    , ((0, 0x1008FF11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%; ~/.config/dunst/changeVolume.sh")
+    , ((0, 0x1008FF13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%; ~/.config/dunst/changeVolume.sh")
     , ((modm, xK_Return), sendMessage ToggleStruts >> sendMessage (Toggle NBFULL))
     ]
     ++
